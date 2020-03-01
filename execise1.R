@@ -48,6 +48,8 @@ pipeline <- function(data) {
   pie_data(d1)
   pie_data(d2)
   pie_data(d3)
+  
+  to_line_chart(d1, d2, d3)
 }
 
 
@@ -79,8 +81,4 @@ exercise3 <- function(data) {
   M <- t[1:(length(t)/2), 1]
   F <- t[1:(length(t)/2), 2]
   return(c(mean(M), mean(F)))
-}
-
-for (i in 1:5) {
-  x <- c(x, d1[i], d2[i], d3[i, 2])
 }
