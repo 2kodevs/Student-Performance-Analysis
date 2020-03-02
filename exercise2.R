@@ -54,3 +54,31 @@ M = t(matrix(measures, ncol=cols, byrow=TRUE))
 
 for(i in c(1:cols)) 
 	barplot(M[i,], names.arg=bar_names, main=graphic_names[i], col="#a1e6e3")
+
+mean_conf_interval = function(sample, alpha) {
+	m = 0
+	s = 1
+	n = length(sample)
+
+	error = qnorm(1 - alpha) * s / sqrt(n)
+	return(c("start" = m - error, "end" = m + error))
+}
+
+variance_conf_interval = function(sample, alpha) {
+	n = length(sample)
+	vr = var(sample)
+
+	q1 = qchisq(1 - alpha / 2, n - 1)
+	q2 = qchisq(alpha / 2, n - 1)
+
+	start <- (n - 1) * vr / q1
+	end <- (n - 1) * vr / q2
+
+	return(c("start" = start, "end" = end))
+}
+
+print(mean_conf_interval(sample_20, 0.05))
+print(mean_conf_interval(sample_30, 0.05))
+
+print(variance_conf_interval(sample_20, 0.05))
+print(variance_conf_interval(sample_30, 0.05))
