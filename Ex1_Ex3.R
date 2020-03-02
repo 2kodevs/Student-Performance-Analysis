@@ -28,6 +28,11 @@ pie_data <- function(x) {
   pie(x, labels=lbls2, col=cls)
 }
 
+hist_data <- function(data, g) {
+  cls <- c("red","dark green", "blue")
+  hist(data, col=cls, xlab="Grades", main=paste("Histogram of Grades period", g))
+}
+
 map <- function(l, f, args) {
   temp <- c()
   for (i in 1:length(l)) {
@@ -41,6 +46,14 @@ pipeline <- function(data) {
   d2 <- process_data(data$G2.y)
   d3 <- process_data(data$G3.y)
   
+  print(d1)
+  print(d2)
+  print(d3)
+  
+  hist_data(data$G1.y, 1)
+  hist_data(data$G2.y, 2)
+  hist_data(data$G3.y, 3)
+  
   bar_data(d1)
   bar_data(d2)
   bar_data(d3)
@@ -50,6 +63,8 @@ pipeline <- function(data) {
   pie_data(d3)
   
   to_line_chart(d1, d2, d3)
+  
+  exercise3(data)
 }
 
 
@@ -78,7 +93,12 @@ to_line_chart <- function(f1, f2, f3) {
 
 exercise3 <- function(data) {
   t <- table(d$G3.y, d$sex)
+  
+  main_message <- "Grades of both sex in period 3"
+  boxplot(data$G3.y ~ data$sex, data=t, ylab="Grades", xlab="Sex", las=1, varwidth=TRUE, notch=TRUE, main=main_message)
   M <- t[1:(length(t)/2), 1]
   F <- t[1:(length(t)/2), 2]
-  return(c(mean(M), mean(F)))
+  
+  print(var.test(x=M, y=F, conf.level=0.95))
+  print(t.test(M, F))
 }
