@@ -63,6 +63,8 @@ pipeline <- function(data) {
   pie_data(d3)
   
   to_line_chart(d1, d2, d3)
+  
+  exercise3(data)
 }
 
 
