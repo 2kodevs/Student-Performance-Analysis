@@ -28,6 +28,11 @@ pie_data <- function(x) {
   pie(x, labels=lbls2, col=cls)
 }
 
+hist_data <- function(data, g) {
+  cls <- c("red","dark green", "blue")
+  hist(data, col=cls, xlab="Grades", main=paste("Histogram of Grades period", g))
+}
+
 map <- function(l, f, args) {
   temp <- c()
   for (i in 1:length(l)) {
@@ -40,6 +45,14 @@ pipeline <- function(data) {
   d1 <- process_data(data$G1.y)
   d2 <- process_data(data$G2.y)
   d3 <- process_data(data$G3.y)
+  
+  print(d1)
+  print(d2)
+  print(d3)
+  
+  hist_data(data$G1.y, 1)
+  hist_data(data$G2.y, 2)
+  hist_data(data$G3.y, 3)
   
   bar_data(d1)
   bar_data(d2)
