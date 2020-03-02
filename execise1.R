@@ -91,7 +91,12 @@ to_line_chart <- function(f1, f2, f3) {
 
 exercise3 <- function(data) {
   t <- table(d$G3.y, d$sex)
+  
+  main_message <- "Grades of both sex in period 3"
+  boxplot(data$G3.y ~ data$sex, data=t, ylab="Grades", xlab="Sex", las=1, varwidth=TRUE, notch=TRUE, main=main_message)
   M <- t[1:(length(t)/2), 1]
   F <- t[1:(length(t)/2), 2]
-  return(c(mean(M), mean(F)))
+  
+  print(var.test(x=M, y=F, conf.level=0.95))
+  print(t.test(M, F))
 }
