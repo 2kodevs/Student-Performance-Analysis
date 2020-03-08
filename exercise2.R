@@ -52,10 +52,13 @@ cols = length(graphic_names)
 
 M = t(matrix(measures, ncol=cols, byrow=TRUE))
 
+png("sample_analysis.png", width=800, height=800)
 par(mfrow=c(2,3))
 
 for(i in c(1:cols)) 
 	barplot(M[i,], names.arg=bar_names, main=graphic_names[i], col="#a1e6e3")
+
+dev.off()
 
 mean_conf_interval = function(sample, alpha) {
 	m = mean(sample)
