@@ -1,5 +1,5 @@
 get_measures = function(x) {
-	return(c(mean(x), getmode(x), median(x), var(x), sd(x), sd(x) / mean(x)))
+	return(c(Mean = mean(x), Mode = getmode(x), Median = median(x), Variance = var(x), Sd = sd(x), DC = sd(x) / mean(x)))
 }
 
 getmode <- function(v) {
@@ -52,16 +52,30 @@ cols = length(graphic_names)
 
 M = t(matrix(measures, ncol=cols, byrow=TRUE))
 
+par(mfrow=c(2,3))
+
 for(i in c(1:cols)) 
 	barplot(M[i,], names.arg=bar_names, main=graphic_names[i], col="#a1e6e3")
 
 mean_conf_interval = function(sample, alpha) {
-	m = 0
-	s = 1
+	m = mean(sample)
+	s = sd(sample)
 	n = length(sample)
 
-	error = qnorm(1 - alpha) * s / sqrt(n)
-	return(c("start" = m - error, "end" = m + error))
+	error = 0
+
+	if(n > 30) {
+		error = qnorm(1 - alpha / 2)
+	}
+
+	else {
+		error = qt(1 - alpha / 2, n - 1)
+	}
+
+	st = m - error * s / sqrt(n)
+	nd = m + error * s / sqrt(n)
+
+	return(c(start=st, end=nd))
 }
 
 variance_conf_interval = function(sample, alpha) {
@@ -71,14 +85,48 @@ variance_conf_interval = function(sample, alpha) {
 	q1 = qchisq(1 - alpha / 2, n - 1)
 	q2 = qchisq(alpha / 2, n - 1)
 
-	start <- (n - 1) * vr / q1
-	end <- (n - 1) * vr / q2
+	st = (n - 1) * vr / q1
+	nd = (n - 1) * vr / q2
 
-	return(c("start" = start, "end" = end))
+	return(c(start=st, end=nd))
 }
 
+print("Mean confidence intervals for S20 and S20R")
 print(mean_conf_interval(sample_20, 0.05))
-print(mean_conf_interval(sample_30, 0.05))
+print(mean_conf_interval(sample_20_r, 0.05))
+print("", quote=FALSE)
 
+print("Var confidence interval for S20 and S20R")
 print(variance_conf_interval(sample_20, 0.05))
+print(variance_conf_interval(sample_20_r, 0.05))
+print("", quote=FALSE)
+
+print("Mean confidence intervals for S30 and S30R")
+print(mean_conf_interval(sample_30, 0.05))
+print(mean_conf_interval(sample_30_r, 0.05))
+print("", quote=FALSE)
+
+print("Var confidence interval for S30 and S30R")
 print(variance_conf_interval(sample_30, 0.05))
+print(variance_conf_interval(sample_30_r, 0.05))
+print("", quote=FALSE)
+
+print("Mean confidence intervals for S150 and S150R")
+print(mean_conf_interval(sample_150, 0.05))
+print(mean_conf_interval(sample_150_r, 0.05))
+print("", quote=FALSE)
+
+print("Var confidence interval for S150 and S150R")
+print(variance_conf_interval(sample_150, 0.05))
+print(variance_conf_interval(sample_150_r, 0.05))
+print("", quote=FALSE)
+
+print("Mean confidence intervals for S350 and S350R")
+print(mean_conf_interval(sample_350, 0.05))
+print(mean_conf_interval(sample_350_r, 0.05))
+print("", quote=FALSE)
+
+print("Var confidence interval for S350 and S350R")
+print(variance_conf_interval(sample_350, 0.05))
+print(variance_conf_interval(sample_350_r, 0.05))
+print("", quote=FALSE)
