@@ -1,0 +1,301 @@
+%===================================================================================
+% JORNADA CIENTÍFICA ESTUDIANTIL - MATCOM, UH
+%===================================================================================
+% Esta plantilla ha sido diseñada para ser usada en los artículos de la
+% Jornada Científica Estudiantil, MatCom.
+%
+% Por favor, siga las instrucciones de esta plantilla y rellene en las secciones
+% correspondientes.
+%
+% NOTA: Necesitará el archivo 'jcematcom.sty' en la misma carpeta donde esté este
+%       archivo para poder utilizar esta plantila.
+%===================================================================================
+
+
+
+%===================================================================================
+% PREÁMBULO
+%-----------------------------------------------------------------------------------
+\documentclass[a4paper,10pt,twocolumn]{article}
+
+%===================================================================================
+% Paquetes
+%-----------------------------------------------------------------------------------\usepackage{amsmath}\usepackage{amsfonts}\usepackage{amssymb}
+\usepackage{jcematcom}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[pdftex]{hyperref}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsfonts,latexsym,stmaryrd,graphicx}
+\usepackage[T1]{fontenc}
+%\usepackage{xcolor}
+\usepackage{anyfontsize}
+\usepackage[x11names,table]{xcolor}
+\usepackage{yfonts}
+\usepackage{mathabx}
+\usepackage{listings} \lstset {numbers = left, numberstyle=\bfseries\tiny, stepnumber=1, numbersep=5pt, tabsize = 4 , language = Python, basicstyle=\small\ttfamily, keywordstyle = \color{blue}, commentstyle = \bf\color{green}, backgroundcolor = \color{gray!2}}
+%-----------------------------------------------------------------------------------
+% Configuración
+%-----------------------------------------------------------------------------------
+\hypersetup{colorlinks,%
+	    citecolor=black,%
+	    filecolor=blue,%
+	    linkcolor=black,%
+	    urlcolor=blue}
+
+%===================================================================================
+
+
+
+%===================================================================================
+% Presentacion
+%-----------------------------------------------------------------------------------
+% Título
+%-----------------------------------------------------------------------------------
+\title{Informe del 1er Proyecto de Estadística - Equipo 6}
+
+%-----------------------------------------------------------------------------------
+% Autores
+%-----------------------------------------------------------------------------------
+\author{\\
+\name Lázaro Raúl Iglesias Vera \email \href{mailto:l.iglesias@estudiantes.matcom.uh.cu}{l.iglesias@estudiantes.matcom.uh.cu}
+\\ \addr Grupo C412 \AND
+\name Miguel Tenorio Potrony \email \href{mailto:m.tenorio@estudiantes.matcom.uh.cu}{m.tenorio@estudiantes.matcom.uh.cu}
+\\ \addr Grupo C412 \AND
+\name Daniel Enrique Cordovés Borroto\email \href{mailto:d.cordovesb@estudiantes.matcom.uh.cu}{d.cordovesb@estudiantes.matcom.uh.cu}
+\\ \addr Grupo C411}
+%-----------------------------------------------------------------------------------
+% Headings
+%-----------------------------------------------------------------------------------
+\jcematcomheading{\the\year}{1-\pageref{end}}{Lázaro Raúl Iglesias Vera,  Miguel Tenorio Potrony, Daniel Enrique Cordovés Borroto}
+
+%-----------------------------------------------------------------------------------
+\ShortHeadings{Informe}{}
+%===================================================================================
+
+
+
+%===================================================================================
+% DOCUMENTO
+%-----------------------------------------------------------------------------------
+\begin{document}
+
+%-----------------------------------------------------------------------------------
+% NO BORRAR ESTA LINEA!
+%-----------------------------------------------------------------------------------
+\twocolumn[
+%-----------------------------------------------------------------------------------
+
+\maketitle
+
+%===================================================================================
+% Resumen y Abstract
+%-----------------------------------------------------------------------------------
+\selectlanguage{spanish} % Para producir el documento en Español
+
+%-----------------------------------------------------------------------------------
+% Resumen en Español
+%-----------------------------------------------------------------------------------
+\begin{abstract}
+
+	Aplicar análisis estadístico a un set de datos referentes al rendimiento de estudiantes de una asignatura determinada y a su vez interpretar los comportamientos de muestras de diferentes tamaños, dada una población, usando los Estadísticos Descriptivos.
+
+\end{abstract}
+
+%-----------------------------------------------------------------------------------
+% English Abstract
+%-----------------------------------------------------------------------------------
+\vspace{0.5cm}
+
+\begin{enabstract}
+
+  Aplicar análisis estadístico a un set de datos referentes al rendimiento de estudiantes de una asignatura determinada y a su vez interpretar los comportamientos de muestras de diferentes tamaños, dada una población, usando los Estadísticos Descriptivos.
+
+\end{enabstract}
+
+%-----------------------------------------------------------------------------------
+% Palabras clave
+%-----------------------------------------------------------------------------------
+\begin{keywords}
+	Estadísticos Descriptivos,
+	Muestra,
+	Variables.
+\end{keywords}
+
+%-----------------------------------------------------------------------------------
+% Temas
+%-----------------------------------------------------------------------------------
+\begin{topics}
+	Análisis Estadístico, Estadística Descriptiva, Estádistica Inferencial.
+\end{topics}
+
+
+%-----------------------------------------------------------------------------------
+% NO BORRAR ESTAS LINEAS!
+%-----------------------------------------------------------------------------------
+\vspace{0.8cm}
+]
+%-----------------------------------------------------------------------------------
+
+
+%===================================================================================
+
+%===================================================================================
+% Introducción
+%-----------------------------------------------------------------------------------
+\section{Introducción}\label{sec:intro}
+%-----------------------------------------------------------------------------------
+  En este trabajo se planea realizar un análisis estadístico del desarrollo de un grupo de estudiantes en cierta asignatura, utilizando un subconjunto de variables que integra el set de datos donde son descritos los estudiantes de forma individual.
+%===================================================================================
+
+
+
+%===================================================================================
+% Desarrollo
+%-----------------------------------------------------------------------------------
+\section{Ejercicios}\label{sec:dev}
+%-----------------------------------------------------------------------------------
+  Se resolverán los ejercicios en el orden que están propuestos en la orientación \cite{1}.
+  \\
+  Tanto en \ref{sub:results1} como en \ref{sub:results3} se utiliza y procesa el set de datos orientado para el equipo. Este contiene información para medir el rendimiento de estudiantes de educación secundaria en dos escuelas portuguesas. Contiene variables como
+  los resultados en diferentes períodos, estado familiar y características económicas de cada estudiante. Todas estas variables están descritas en \cite{artículo original}.
+  
+  
+
+%-----------------------------------------------------------------------------------
+	\subsection{Ejercicio 1}\label{sub:results1}
+%-----------------------------------------------------------------------------------
+	\subsubsection{Inciso a} 
+	Se consideraron las variables que miden los resultados de los tres períodos de cada estudiante como las más importantes, ya que interesaba mostrar la evolución del rendimiento en la asignatura analizada a través del tiempo. En los datos se pueden apreciar otras variables, que podrían ser de interés, como el sexo de los estudiantes o el número de fracasos anteriores; pero dado el requisito de solo escoger tres de estas, se valoraron las notas.
+	\\
+	En la Figura \ref{fig: estad}, se muestran los Estadísticos Descriptivos de las variables.
+	
+		\begin{center}
+			{\fontfamily{ptm}\selectfont{
+				\rowcolors{1}{gray!20}{}
+				\begin{tabular}{| c | c | c | c |}
+					\hline
+					\rowcolor{brown!50} \rule[-1ex]{0pt}{1.5ex} Dato & Media & Moda & Mediana\\ 
+					\hline G1 & 12.1125 & 12.0000 & 12.0000 \\
+					\hline G2 & 12.2382 & 12.0000 & 12.0000 \\
+					\hline G3 & 12.5157 & 13.0000 & 13.0000 \\
+					\hline
+				\end{tabular} }
+			} \vspace{3mm}
+			{\fontfamily{ptm}\selectfont{
+					\rowcolors{1}{gray!20}{}
+					\begin{tabular}{| c | c | c | c |}
+						\hline
+						\rowcolor{brown!50} \rule[-1ex]{0pt}{1.5ex} Dato & Varianza & Desviaci\'on Est\'andar & CV\\ 
+						\hline G1 & 6.5358 & 2.5565 & 0.2110 \\
+						\hline G2 & 6.0927 & 2.4683 & 0.2016 \\
+						\hline G3 & 8.6756 & 2.9454 & 0.2353 \\
+						\hline
+					\end{tabular} }
+				}
+			\captionof{figure}{Estad\'isticos Descriptivos}\label{fig: estad}
+		\end{center}
+		%\begin{center}
+			\hspace{7cm}\vspace{-1.5cm}\includegraphics[width=1cm]{img/legendGradesPeriod.png}
+		%\end{center}
+		
+\vspace{-0.5cm}	\subsubsection{Inciso b}
+			\begin{figure}[h]
+				\vspace{1cm}\includegraphics[width=9.5cm]{img/mmmMGradesPeriod.png}
+			\end{figure}
+			
+			\hspace{-1.2cm}\includegraphics[width=9.5cm]{img/vsddGradesPeriod.png}
+			\vspace{-0.8cm}	\captionof{figure}{Estad\'isticos Descriptivos}\label{fig: mmm}
+	
+			\hspace{-1.3cm}	\includegraphics[width=9.5cm]{img/bar2.png}	
+
+			\hspace{-1.3cm}	\includegraphics[width=9.5cm]{img/bar4.png}
+			\captionof{figure}{Notas por intervalo}\label{fig: gradesInterval}
+
+			\hspace{-1.3cm}	\includegraphics[width=9.5cm]{img/pie3.png}
+			\captionof{figure}{Porcentajes de los intervalos}\label{fig: pie}
+
+			\begin{figure}[h]
+			\includegraphics[width=9.5cm]{img/lineGrades.png}
+			\captionof{figure}{Evolución de los resultados}\label{fig: line}
+			\end{figure}
+	
+	\subsubsection{Inciso c}
+	La \emph{media} (Figura \ref{fig: mmm} arriba a la izquierda) de las notas, aunque tiende a aumentar ligeramente através de los períodos, está entre $12$ y $13$, lo cual quiere decir que el estudiante promedio en los tres períodos tiene una nota de suficiente.\\
+	
+	La \emph{moda} (Figura \ref{fig: mmm} arriba al centro) de las notas en los dos primeros períodos es $12$, y en el tercer período $13$, lo cual significa que la mayoría de los estudiantes tienen nota de suficiente.\\
+	
+	La \emph{mediana} (Figura \ref{fig: mmm} arriba a la derecha) de las notas en los dos primeros períodos es $12$, y en el tercer período $13$, lo cual significa que el $50\%$ de los estudiantes tienen nota de suficiente, resultado consistente con el análisis de la media y moda.\\
+	
+	El \emph{Coeficiente de Variación} (Figura \ref{fig: mmm} abajo a la derecha) está entre $16$ y $26$ en los tres períodos, lo cual quiere decir que los datos son heterogéneos.\\
+	
+	Como es apreciable en las Figuras \ref{fig: gradesInterval}, \ref{fig: pie} y \ref{fig: line}, hay una tendencia de mejoría en las notas por cada período, siendo los indicadores más notables la disminución de los suspensos (en rojo) y el aumento de los excelentes (azul oscuro). \\
+%-----------------------------------------------------------------------------------
+	\subsection{Ejercicio 2}\label{sub:results2}
+%-----------------------------------------------------------------------------------
+		Waiting for dcordb...
+
+%-----------------------------------------------------------------------------------
+	\subsection{Ejercicio 3}\label{sub:results3}
+%-----------------------------------------------------------------------------------
+	Fueron analizadas las notas de los estudiantes de sexo masculino y femenino del tercer período para poder analizar las diferencias entre ambos grupos. Se asume que las observaciones provienen de una distribución normal. \\
+	
+	Se puede apreciar en la Figura \ref{fig:box} que las medianas entre ambos grupos están cercanas (solapamiento entre las cuñas de las cajas), lo cual indica que las medias no deben ser muy diferentes; no obstante, se procede a realizar un test de hipótesis para su verificación.\\
+	
+	En orden de realizar un test de hipótesis para las medias, se realiza una pruebas de hipótesis para la comparación de las varianzas, ya que estas son desconocidas.
+	
+	$$H_1: \text{Las varianzas son diferentes}$$
+	$$H_0: {\sigma_F}^2 = {\sigma_M}^2$$
+	$$H_1: {\sigma_F}^2 \neq {\sigma_M}^2$$
+	$$\alpha = 0.05$$
+	
+	Se utilizó la función $var.test$ del paquete de $R$ $usefultools$. El resultado fue un p-value $= 0.4158$, lo cual significa que no se rechaza $H_0$ dado que el \\ p-value $> \alpha$. Por tanto, se asume que las varianzas son iguales (el test además ofrece como resultado la razón muestral entre las varianzas, la cual es $1.5139$).\\
+	
+	Para obtener los resultados de la prueba de hipótesis para la comparación de las medias de ambos grupos de estudiantes, se utilizó la función del lenguaje $R$ $t.test$, asumiendo que las varianzas son desconocidas, pero iguales.
+	
+	$$H_1: \text{Las medias son diferentes}$$
+	$$H_0: \mu_F = \mu_M$$
+	$$H_1: \mu_F \neq \mu_M$$
+	$$\alpha = 0.05$$
+	
+	El resultado fue un p-value $= 0.8349$, lo cual significa que no se rechaza $H_0$ dado que el p-value $> \alpha$. Por consiguiente, se asume que las medias son iguales. La media muestral de los estudiantes es $11.6470$ y $10.8235$ para los grupos masculino y femenino respectivamente.
+
+		\begin{figure}[htb]%
+		\begin{center}
+			\hspace{-1.3cm}\includegraphics[width=9.5cm]{img/boxSex.png}
+		\end{center}
+		\caption{Gráfico de Caja y Bigote \label{fig:box}}%
+		\end{figure}
+
+%===================================================================================
+% Conclusiones
+%-----------------------------------------------------------------------------------
+\section{Conclusiones}\label{sec:conc}
+
+  Como resultado se puede decir que los datos procesados no difieren mucho entre sí, a pesar de ser heterogéneos, dado que las medidas de tendencia central así lo indican. Incluso, al estudiar las posibles diferencias de las notas de los estudiantes en cuanto al sexo, se demostró que no es posible afirmar que las medias son diferentes.
+
+%===================================================================================
+
+
+
+%===================================================================================
+% Bibliografía
+%-----------------------------------------------------------------------------------
+\begin{thebibliography}{99}
+%-----------------------------------------------------------------------------------
+	\bibitem{1} \emph{Proyecto Evaluativo Estadística Fase 1}. \href{resources/orientacion.pdf}{(abrir)}
+
+	\bibitem{artículo original} \href{../docs/student.pdf}{Artículo original}
+
+
+%-----------------------------------------------------------------------------------
+\end{thebibliography}
+
+%-----------------------------------------------------------------------------------
+
+\label{end}
+
+\end{document}
+
+%===================================================================================
