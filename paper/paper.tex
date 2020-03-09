@@ -110,7 +110,7 @@
 
 \begin{enabstract}
 
-  Aplicar análisis estadístico a un set de datos referentes al rendimiento de estudiantes de una asignatura determinada y a su vez interpretar los comportamientos de muestras de diferentes tamaños, dada una población, usando los Estadísticos Descriptivos.
+  Apply an statistical analysis to a set of data referent to the performance of students of a subject and the same time to interpret the behavior of some samples of different sizes given a population using Descriptive Statistics.
 
 \end{enabstract}
 
@@ -146,7 +146,7 @@
 %-----------------------------------------------------------------------------------
 \section{Introducción}\label{sec:intro}
 %-----------------------------------------------------------------------------------
-  En este trabajo se planea realizar un análisis estadístico del desarrollo de un grupo de estudiantes en cierta asignatura, utilizando un subconjunto de variables que integra el set de datos donde son descritos los estudiantes de forma individual.
+  En este trabajo se planea realizar un análisis estadístico del desarrollo de un grupo de estudiantes en cierta asignatura, utilizando un subconjunto de variables que integra el set de datos donde son descritos los estudiantes de forma individual. También se estudia el comportamiento de los Estadísticos Descriptivos en varias muestras tomadas de una población normal y la vez se calculan intervalos de confianza para media y varianza.
 %===================================================================================
 
 
@@ -234,7 +234,64 @@
 %-----------------------------------------------------------------------------------
 	\subsection{Ejercicio 2}\label{sub:results2}
 %-----------------------------------------------------------------------------------
-		Waiting for dcordb...
+		\subsubsection{Incisos a, b, c}
+		Se generó una población normal de tamaño 500 (com media 0 y desviación estándar 1). Acto seguido se generaron 8 muestras de distintos tamaños, 4 con reemplazo y 4 sin reemplazo, para analizar el comportamiento de los Estadísticos Descriptivos en las muestras y compararlos con los de la población. Se obtuvieron los siguientes resultados:
+		
+		\begin{figure}[htb]
+			\begin{center}
+				\includegraphics[width=0.5\textwidth, height=8cm]{img/sample_analysis.png}
+			\end{center}
+			\caption{Análisis de Estadísticos Descriptivos en muestras}%
+		\end{figure}
+		
+		Cada gráfico muestra los valores de los Estadísticos Descriptivos correspondientes. En cada gráfico las barras indican el valor del estadístico en dicho gráfico para la muestra correspondiente. En total hay 8 muestras:
+		
+		\begin{enumerate}
+			\item 20 elementos sin reemplazo (20)
+			\item 20 elementos con reemplazo (20R)
+			
+			\item 20 elementos sin reemplazo (30)
+			\item 20 elementos con reemplazo (30R)
+			
+			\item 20 elementos sin reemplazo (150)
+			\item 20 elementos con reemplazo (150R)
+			
+			\item 20 elementos sin reemplazo (350)
+			\item 20 elementos con reemplazo (350R)
+		\end{enumerate}
+		
+		Pob. indica el valor del estadístico correspondiente en la población.\\
+		
+		Como se esperaba, las muestras muestran un comportamiento similar a la población, su media es cercana a 0 y su desviación estandar a 1. También se muestran moda, mediana, varianza y coeficiente de desviación. Estos datos son de esas 8 muestras puntuales que se obtuvieron.
+		
+		\subsection{Inciso d}
+		
+		Se hallaron los intervalos de confianza para cada una de las muestras para la media y la varianza. Se obtuvieron los siguientes resultados.
+		
+		\begin{center}
+			\centering 
+			{\fontfamily{ptm}\selectfont{
+					\rowcolors{1}{gray!20}{}
+					\begin{tabular}{| c | c | c | c | c |}
+						\hline
+						\rowcolor{brown!50} \rule[-1ex]{0pt}{1.5ex} Muestra & Inicio Media & Fin Media & Inicio Var & Fin Var\\ 
+						\hline 20 & -1.00438955 & -0.06706643 & 0.5799462 & 2.1391732 \\
+						\hline 20R & -0.7063557 & 0.2161185 & 0.5617169 & 2.0719332 \\
+						\hline 30 & -0.6077125 & 0.2026117 & 0.746732 & 2.127634 \\
+						\hline 30R &  -0.5694701 &  0.2165731 &  0.7026517 &  2.0020376 \\
+						\hline 150 & -0.2118624 & 0.1043694 & 0.7875828 & 1.2421757 \\
+						\hline 150R & -0.26440420 & 0.05097993 & 0.7833661 & 1.2355252 \\
+						\hline 350 & -0.18680022 & 0.02670431 & 0.8999631 &  1.2113790 \\
+						\hline 350R & -0.28031819 & -0.06046885 & 0.9542471 & 1.2844471 \\
+						\hline
+					\end{tabular}
+				}
+			}
+		\end{center}
+		
+		\subsubsection{Inciso e}
+		
+		Se puede ver que entre las muestras de tamaño similar no existe una gran variación en los límites inferiores y superiores del intervalo de confianza para la media o varianza.
 
 %-----------------------------------------------------------------------------------
 	\subsection{Ejercicio 3}\label{sub:results3}
@@ -273,7 +330,7 @@
 %-----------------------------------------------------------------------------------
 \section{Conclusiones}\label{sec:conc}
 
-  Como resultado se puede decir que los datos procesados no difieren mucho entre sí, a pesar de ser heterogéneos, dado que las medidas de tendencia central así lo indican. Incluso, al estudiar las posibles diferencias de las notas de los estudiantes en cuanto al sexo, se demostró que no es posible afirmar que las medias son diferentes.
+  Como resultado se puede decir que los datos procesados no difieren mucho entre sí, a pesar de ser heterogéneos, dado que las medidas de tendencia central así lo indican. Incluso, al estudiar las posibles diferencias de las notas de los estudiantes en cuanto al sexo, se demostró que no es posible afirmar que las medias son diferentes. Además se analizó el comportamiento de los Estadísticos Descriptivos en varias muestras de una población, se obtuvieron los resultados esperados para cada una de las muestras y para los intervalos de confianza de media y varianza.
 
 %===================================================================================
 
