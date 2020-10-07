@@ -1,11 +1,17 @@
 .~students-data.csv
 Rplots.pdf
-paper/paper.synctex.gz
+*paper/paper.synctex.gz
 
-paper/paper.out
+Fase 1/paper/paper.out
 
-paper/paper.log
+Fase 1/paper/paper.log
 
-paper/paper.aux
+Fase 1/paper/paper.aux
 
-paper/img/
+Fase 1/paper/img/
+
+
+
+Fase 1/paper/paper.tex
+
+Fase 1/paper/jcematcom.sty
