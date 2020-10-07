@@ -1,5 +1,9 @@
 #path=/media/teno/Backup/Universidad/Clases/4to Año/Probabilidades y Estadística/Estadistica /1er Proyecto/Equipo 6/Equipo 6 - Student Performance/students-data.csv"
 
+get_measures = function(x) {
+  return(c(mean(x), getmode(x), median(x), var(x), sd(x), sd(x) / mean(x)))
+}
+
 load_data <- function(path) {
   return(read.csv(path))
 }
@@ -13,19 +17,21 @@ percent <- function(x, s) {
   return(round((x * 100 / s)))
 }
 
-bar_data <- function(x) {
+bar_data <- function(x, g) {
   lbls <- c("Fail", "Sufficient", "Satisfactory", "Good", "Excellent/Very Good")
   cls <- c("red", "light green", "dark green", "blue", "dark blue")
-  barplot(x, ylim=c(0,130), col=cls, legend=lbls)
+  msg <- paste("Grades summary of period", g)
+  barplot(x, ylim=c(0,130), col=cls, main=msg, ylab="Frecuency", xlab="Intervals")
 }
 
-pie_data <- function(x) {
+pie_data <- function(x, g) {
   s <- sum(x)
   pct <- round(percent(x, s))
   lbls <- c("Fail", "Sufficient", "Satisfactory", "Good", "Excellent/Very Good")
   lbls2 <- paste(lbls, " ", pct, "%", sep="")
   cls <- c("red", "light green", "dark green", "blue", "dark blue")
-  pie(x, labels=lbls2, col=cls)
+  msg <- paste("Grades summary in percentage of period", g)
+  pie(x, labels=lbls2, col=cls, main=msg)
 }
 
 hist_data <- function(data, g) {
@@ -42,6 +48,21 @@ map <- function(l, f, args) {
 }
 
 pipeline <- function(data) {
+  m1 <- get_measures(data$G1.y)
+  m2 <- get_measures(data$G2.y)
+  m3 <- get_measures(data$G3.y)
+  
+  print(m1)
+  print(m2)
+  print(m3)
+  
+  msgs <- c("Mean", "Mode", "Median", "Variance", "Standard Deviation", "Deviation Coefficient")
+  cls <- c("red", "green", "blue")
+  lbls <- c("G1", "G2", "G3")
+  for (i in 1:6) {
+    barplot(c(m1[i], m2[i], m3[i]), main=msgs[i], col=cls, legend=lbls)
+  }
+
   d1 <- process_data(data$G1.y)
   d2 <- process_data(data$G2.y)
   d3 <- process_data(data$G3.y)
@@ -76,7 +97,8 @@ to_line_chart <- function(f1, f2, f3) {
     y <- c(y, 1, 2, 3)
     x <- c(x, df$Freq[i], df$Freq.1[i], df$Freq.2[i])
   }
-  plot(y, x, type="n", ylab = "frequence", xlab="time")
+  msg <- "Grades results overview through time"
+  plot(y, x, type="n", ylab = "frequence", xlab="time", main=msg)
   cls <- c("red", "light green", "dark green", "blue", "dark blue")
   linetype <- c(1:length(f1))
   plotchar <- seq(18, 18+length(f1), 1)
