@@ -99,7 +99,6 @@ scores <- function(data, i) {
 }
 
 load_data <- function(root) {
-    print(root)
     data <- read.csv(root)
 
     lvl1 <- c()
@@ -122,6 +121,7 @@ load_data <- function(root) {
 }
 
 main <- function() {
+    cat("Enter the csv dir:\n")
     df <- load_data(readLines("stdin", n=1))
     
     make_model(df, 'zona')
