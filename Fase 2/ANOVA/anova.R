@@ -95,36 +95,36 @@ make_model <- function(df, label) {
 }
 
 scores <- function(data, i) {
-  return(mean(c(data$G1.x[i], data$G2.x[i], data$G3.x[i])))
+    return(mean(c(data$G1.x[i], data$G2.x[i], data$G3.x[i])))
 }
 
 load_data <- function(root) {
-  print(root)
-  data <- read.csv(root)
+    print(root)
+    data <- read.csv(root)
 
-  lvl1 <- c()
-  lvl2 <- c()
-  lvls <- levels(data$address)
-  ln <- length(data$sex)
-  for(i in 1:ln){
-    if (data$address[i] == lvls[1]) {
-      lvl1 <- c(lvl1, scores(data, i))
-    } else {
-      lvl2 <- c(lvl2, scores(data, i))
+    lvl1 <- c()
+    lvl2 <- c()
+    lvls <- levels(data$address)
+    ln <- length(data$sex)
+    for(i in 1:ln){
+        if (data$address[i] == lvls[1]) {
+            lvl1 <- c(lvl1, scores(data, i))
+        } else {
+            lvl2 <- c(lvl2, scores(data, i))
+        }
     }
-  }
-  amount <- min(length(lvl1), length(lvl2))
- 
-  measure <- c(lvl1[1:amount], lvl2[1:amount])
-  addr <- c(rep(lvls[1], amount), rep(lvls[2], amount))
+    amount <- min(length(lvl1), length(lvl2))
+    
+    measure <- c(lvl1[1:amount], lvl2[1:amount])
+    addr <- c(rep(lvls[1], amount), rep(lvls[2], amount))
 
-  return(data.frame(addr, measure))
+    return(data.frame(addr, measure))
 }
 
 main <- function() {
-  df <- load_data(readLines("stdin", n=1))
-  
-  make_model(df, 'zona')
+    df <- load_data(readLines("stdin", n=1))
+    
+    make_model(df, 'zona')
 }
 
 main()
