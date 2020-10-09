@@ -5,7 +5,6 @@
 Fase 1/paper/img/
 
 # extensions
-*.csv
 *.gz
 *.out
 *.log
