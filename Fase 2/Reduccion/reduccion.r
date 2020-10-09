@@ -50,9 +50,10 @@ select_test_data <- function(data) {
 
 main <- function(root){
     cat("Enter the csv dir:\n")
-    data <- select_test_data(load_data(readLines("stdin", n=1)))
+    data <- load_data(readLines("stdin", n=1))
+    data$id <- NULL
 
-    png('images/correlation-plot.png', width=1900, height=1900, res=40)
+    png('images/correlation-plot.png')
     plot(data)
     dev.off()
 
