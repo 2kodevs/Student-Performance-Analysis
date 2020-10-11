@@ -1,8 +1,8 @@
 .DEFAULT_GOAL 	:= help
 
-ANOVA 		:= Fase 2/ANOVA/
+ANOVA		:= Fase 2/ANOVA/
 REDUC		:= Fase 2/Reduccion/
-DIR 		:= $(shell pwd)
+DIR			:= $(shell pwd)
 FILES		:= $(DIR)/files
 DATASET 	:= students-data.csv
 CSV			:= $(FILES)/$(DATASET)

@@ -1,14 +1,14 @@
 # ACP
 
-A partir del data set _students-data.csv_ fueron extraidas variables numéricas de interés sobre los estudiante para así realizar estudios sobre ellos. Estos datos se encuentran recogidos en _sub-students-data.csv_. 
+A partir del data set _students-data.csv_ fueron extraídas variables numéricas de interés sobre los estudiantes para así realizar estudios sobre ellos. Estos datos se encuentran recogidos en _sub-students-data.csv_. 
 
 Dada la gran cantidad de datos se dificultan los estudios que se desean hacer por ello en este trabajo se hará un análisis de las componentes principales(**ACP**) para así intentar facilitar futuros procedimientos.
 
-De manera inicial es util conocer la correlación existente entre las variables. Esta información puede ser obtenida analizandolo gráficamente y numéricamente. De la gráfica es díficil obtener información dada la cantidad de variables y el tamaño de la muestra, pero puede ser apreciada a continuación. 
+De manera inicial es útil conocer la correlación existente entre las variables. Esta información puede ser obtenida análizandolo gráficamente y numéricamente. De la gráfica es díficil obtener información dada la cantidad de variables y el tamaño de la muestra, pero puede ser apreciada a continuación. 
 
 ![Gráfico de Correlación](../images/correlation-plot.png "Gráfico de Correlación")
 
-De igual modo extraer datos de la matriz de correlación se hace complicado por las mismas razones anteriores. Para ver dicha matriz puede ejecutar siguiente commando desde la raiz del proyecto:
+De igual modo extraer datos de la matriz de correlación se hace complicado por las mismas razones anteriores. Para ver dicha matriz puede ejecutar el siguiente comando desde la raíz del proyecto:
 
 `make reduct`
 
@@ -44,7 +44,7 @@ Como se muestra, se está en presencia de datos que no son altamente correlacion
 
 Como resultado se obtiene la importancia de las componentes
 
-> Solo se mostraran las 7 primeras componentes, para verlas todas ver el log del comando antes mencionado
+> Solo se mostrarán las 7 primeras componentes, para verlas todas ver el log del comando antes mencionado
 
 |                        |  PC1   |  PC2   |   PC3   |   PC4   |   PC5   |   PC6   |   PC7   |  ...  |
 | :--------------------: | :----: | :----: | :-----: | :-----: | :-----: | :-----: | :-----: | :---: |
@@ -53,7 +53,7 @@ Como resultado se obtiene la importancia de las componentes
 | Cumulative Proportion  | 0.2141 | 0.3489 | 0.44515 | 0.52669 | 0.59840 | 0.65945 | 0.71698 |  ...  |
 |                        |        |        |         |         |         |         |         |       |
 
-Dado los valores principales de las componentes y utilizando el criterio de **Kaiser** podemos tomar las primeras 5 componentes como las principales de los datos muestrados, lo caul implica un reducción considerable de los mismos. Esta selección. Esta selección puede ser reforzado graficamente analizando el siguiente gráfico.
+Dado los valores principales de las componentes y utilizando el criterio de **Kaiser** podemos tomar las primeras 5 componentes como las principales de los datos muestrados, lo cual implica una reducción considerable de los mismos. Esta selección puede ser reforzada graficamente analizando el siguiente gráfico.
 
 ![Gráfico ACP](../images/acp-plot.png "Gráfico ACP")
 
@@ -83,22 +83,22 @@ Solo resta sacar resultados de los datos obtenidos; para ello es necesario conoc
 
 Por cada componente es necesario obtener su mayor valor propio para luego seleccionar las variables de la componente.
 
-- **PC1:** El mayor valor propio es el asociado a los _failures_ por tanto es una componente marcada por las fallas anteriores de los estudientes, su edad y el consumo de alcohol de los mismos en sus fines de semana.
+- **PC1:** El mayor valor propio es el asociado a los _failures_ por tanto es una componente marcada por las fallas anteriores de los estudientes, su edad, la educación del padre y la madre, sus notas y el consumo de alcohol de los mismos en sus fines de semana.
 
-- **PC2:** El mayor valor propio es el asociado a el _studytime_ por tanto es una componente marcada únicamente por tiempo que dedican los estudiantes a su estudio individual.
+- **PC2:** El mayor valor propio es el asociado a el _studytime_ por tanto es una componente marcada por tiempo que dedican los estudiantes a su estudio individual, la educación del padre y la madre, su tiempo libre y frecuencia de salidas, su consumo de alcohol, ausencias a clase y las notas obtenidas.
 
-- **PC3:** El mayor valor propio es el asociado a el _traveltime_ por tanto es una componente marcada por las notas recividas por el estudiante y su tiempo de viaje hacia la escuela.
+- **PC3:** El mayor valor propio es el asociado a el _traveltime_ por tanto es una componente marcada por las notas obtenidas por el estudiante, su tiempo de viaje hacia la escuela y la educación de sus padres.
 
-- **PC4:** El mayor valor propio es el asociado a el _famrel_ por tanto es una componente marcada por las relaciones familiares del estudiante, su tiempo libre y su estado de salud.
+- **PC4:** El mayor valor propio es el asociado a el _famrel_ por tanto es una componente marcada por las relaciones familiares del estudiante, su tiempo libre, ausencias a clase y su estado de salud.
 
 - **PC5:** El mayor valor propio es el asociado a el _health_ por tanto es una componente marcada únicamente por el estado de salud del estudiante.
 
-A traves de estos datos podemos apreciar como no solamente las notas son factores de importancia en el análisis de su desempeño o cualquier otra valoración que se desee hacer respecto a los estudiantes, dado que tanto su estado de salud y relaciones familiares influyen en sus indicadores principales.
+A través de estos datos podemos apreciar como no solamente las notas son factores de importancia en el análisis de su desempeño o cualquier otra valoración que se desee hacer respecto a los estudiantes, dado que tanto su estado de salud, relaciones familiares, la planificación de su tiempo y la edución de su padres influyen en sus indicadores principales.
 
-Por último podemos ver el biplot resultante de convinar las componentes, para observar cuanto influencia de las variables en las componentes gráficamente. A continuación se muestra el biplot asociado a la 1era y 2da componete.
+Por último podemos ver el biplot resultante de combinar las componentes, para observar la influencia de las variables en las componentes gráficamente. A continuación se muestra el biplot asociado a la 1era y 2da componete.
 
 ![Gráfico biplot](../images/bi-plot.png "Gráfico biplot")
 
 ## Conclusiones:
 
-De la reducción realizada se desprenden datos interesantes, tales como la importancia de la edad(**PC1**) de un estudiantes en sus estadísticos, lo cual implica que su nivel de madurez y responsabilidad representa un factor importante en sus resultados. También de manera perceptible tiene un efecto sobre su desempeño el nivel de estudios de su padre y madre (**PC2, PC3**) pues dicho nivel conlleva un mayor o menor nivel de exigencia de la familia hacia elestudiante. Por último vale notar como la planificación del tiempo es vital dado que tanto el tiempo de viaje (**PC4**), como el de estudio (**PC5**) tiene un marcada huella en la calidad del estudiante. 
+De la reducción realizada se desprenden datos interesantes, tales como la importancia de la edad(**PC1**) de un estudiantes en sus estadísticos, lo cual implica que su nivel de madurez y responsabilidad representa un factor importante en sus resultados. También de manera perceptible tiene un efecto sobre su desempeño el nivel de estudios de su padre y madre (**PC2, PC3**) pues dicho nivel conlleva un mayor o menor nivel de exigencia de la familia hacia el estudiante. Por último vale notar como la planificación del tiempo es vital dado que tanto el tiempo de viaje (**PC4**), como el de estudio (**PC5**) tiene un marcada huella en la calidad del estudiante. 
