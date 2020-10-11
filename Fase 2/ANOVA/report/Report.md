@@ -1,8 +1,8 @@
 # ANOVA
 
-Utilizando el set de datos _students-data.csv_ se quiere conocer si el dirección de un estudiande, ya sea en área rural o urbana, tiene alguna relación con la nota promedio obtenida por el mismo en las 3 evaluaciones realizadas.
+Utilizando el set de datos _students-data.csv_ se quiere conocer si el dirección de un estudiante, ya sea en área rural o urbana, tiene alguna relación con la nota promedio obtenida por el mismo en las 3 evaluaciones realizadas.
 
-Para ello se selecionaron los datos y se colocaron en una tabla de la siguiente forma:
+Para ello se seleccionaron los datos y se colocaron en una tabla de la siguiente forma:
 
 | $Dirección$ | $Promedio$ |
 | :---------: | :--------: |
@@ -22,13 +22,13 @@ Para ello se selecionaron los datos y se colocaron en una tabla de la siguiente 
 
 
 Una vez agrupados los datos de esta forma se procede a hacer el análisis **ANOVA** para dar respuesta a la siguiente interrogante:
-**¿Existend diferencias en la nota promedio de los estudiantes de diferenctes zonas?**
+**¿Existen diferencias en la nota promedio de los estudiantes de diferentes zonas?**
 
 Un primer acercamiento a la pregunta en cuestión lo brinda el análisis de las medias de factor.
 
 ![Medias de factor](../images/box-zona.png "Medias de factor")
 
-Como se puede apreciar, no hay una diferencia notable dentro de los datos procesados, por lo que es posible que no se pueda rechazar la hipótesis$(H_0)$ de que no exite diferencia. 
+Como se puede apreciar, no hay una diferencia notable dentro de los datos procesados, por lo que es posible que no se pueda rechazar la hipótesis$(H_0)$ de que no existe diferencia. 
 
 > NOTA: para los análisis posteriores se fijará un nivel de significación $\alpha = 0.05$
 
@@ -40,7 +40,7 @@ Dirección       1    4.5    4.50   0.353  0.553
 Residuals     160 2040.6   12.75
 ```
 
-Como se puede observar el $p$-$value$ resulto ser mayor que la significación $\alpha$ prefijada, por tanto se puede decir que no varía la nota promedio de los estudiantes según su dirección.
+Como se puede observar el $p$-$value$ resultó ser mayor que la significación $\alpha$ prefijada, por tanto se puede decir que no varía la nota promedio de los estudiantes según su dirección.
 
 Para poder concluir con certeza es necesario realizar una verificación del cumplimientos de los 3 supuestos de este modelo. Para ello se utilizarán los residuos obtenidos en el paso anterior. Los supuestos antes mencionados son:
 
@@ -48,11 +48,11 @@ Para poder concluir con certeza es necesario realizar una verificación del cump
 2. Los residuos son independientes entre sí.
 3. Los residuos de cada tratamiento tienen la misma varianza $\sigma^2$ .
 
-Tal como en el procedimiento anterior, se puede tener una primera idea sobre el comportamiento de los supuestos si se analiza su comportamiento graficamente como se muestra a continuación. 
+Tal como en el procedimiento anterior, se puede tener una primera idea sobre el comportamiento de los supuestos si se analiza su comportamiento gráficamente como se muestra a continuación. 
 
 ![Gráficos de los supuestos](../images/all-zona.png "Gráficos de los supuestos")
 
-Este grupo de gráficos, indican que el test es válido ya que cada uno de ellos tiene el compartamiento esperado. Dado que esta información no es 100% véridica, se procesederá a realizar los test para comprobar los supuestos utilizando los residuos obtenidos del análisis de varianza.
+Este grupo de gráficos, indican que el test es válido ya que cada uno de ellos tiene el comportamiento esperado. Dado que esta información no es 100% véridica, se procederá a realizar los test para comprobar los supuestos utilizando los residuos obtenidos del análisis de varianza.
 
 ```
 Shapiro-Wilk normality test:
@@ -70,4 +70,4 @@ Los resultados de los test previos confirman la veracidad de el análisis de var
 
 # Conclusiones
 
-El análisis realizado demuestra que el aprendizaje y los resultados de los estudiantes en cuestión no depende de la zona donde este ubicada su vivienda, por tanto para buscar datos que afecten su avance hacia mejores calificaciones será necesario realizar nuevos test.
+El análisis realizado demuestra que el aprendizaje y los resultados de los estudiantes en cuestión no depende de la zona donde esté ubicada su vivienda, por tanto para buscar datos que afecten su avance hacia mejores calificaciones será necesario realizar nuevos test.
