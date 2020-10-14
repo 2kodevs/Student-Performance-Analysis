@@ -1,12 +1,19 @@
 .DEFAULT_GOAL 	:= help
 
 ANOVA 	:= Fase 2/ANOVA/
+REDUC		:= Fase 2/Reduccion/
 CLUSTER := Fase 2/Cluster/
-DIR 	:= $(shell pwd)
-CSV		:= $(DIR)/students-data.csv
+DIR			:= $(shell pwd)
+FILES		:= $(DIR)/files
+DATASET 	:= students-data.csv
+CSV			:= $(FILES)/$(DATASET)
+SUBCSV		:= $(FILES)/sub-$(DATASET)
 
 anova: ## Run the anova test
 	@cd "$(ANOVA)" && echo "$(CSV)" | Rscript anova.r
+
+reduc: ## Run the reduction test
+	@cd "$(REDUC)" && echo "$(SUBCSV)" | Rscript reduccion.r
 
 cluster: ## Run the cluster generation
 	@cd "$(CLUSTER)" && echo "$(CSV)" | Rscript cluster.r
