@@ -14,31 +14,31 @@ for(i in 1:length(df)) {
     fcols <- c(fcols, i)
 }
 
-qual <- subset(df, select=fcols)
-rows <- dim(qual)[1]
+df <- subset(df, select=fcols)
 
-print(names(qual))
+print(names(df))
 
-set.seed(2)
-s <- sample(1:rows, 2*rows/3)
+require(caTools)
+set.seed(127)
+split <- sample.split(df, SplitRatio = 0.75)
+training_set <- subset(df, split == TRUE)
+test_set <- subset(df, split == FALSE)
 
 require(rpart)
-tree <- rpart(paid.x ~ ., data=qual[s,])
+tree <- rpart(paid.x ~ ., data=training_set)
 
 print(summary(tree))
 
-png('report/tree.png', width=800, height=400)
-plot(tree)
-text(tree, use.n=TRUE, all=TRUE, pretty=0, xpd=TRUE)
+png('report/tree.png')
+require(rpart.plot)
+rpart.plot(tree, type=1, fallen.leaves=F, cex=1, extra=102, under=T)
 dev.off()
 
-pred <- predict(tree, newdata=qual[-s,], type="vector")
+pred <- predict(tree, newdata=test_set, type="vector")
 print(pred)
-print("----------")
 
-conf <- table(pred, qual[-s,]$paid.x)
+conf <- table(pred, test_set$paid.x)
 print(conf)
-print("----------")
 
 error <- 1 - (sum(diag(conf)) / sum(conf))
 print(error)
