@@ -9,7 +9,7 @@ select_data <- function(data) {
 }
 
 jerarquical <- function(data){
-    png('images/jerarquical.jpg')
+    png('images/jerarquical.png')
     d <- dist(data, method="euclidean")
     fit <- hclust(d, method="complete")
     plot(fit)
