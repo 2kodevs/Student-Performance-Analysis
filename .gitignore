@@ -1,17 +1,20 @@
-.~students-data.csv
-Rplots.pdf
-*paper/paper.synctex.gz
-
-Fase 1/paper/paper.out
-
-Fase 1/paper/paper.log
-
-Fase 1/paper/paper.aux
-
+# directories
+*stuff/
+*Stuff/
+*Rplots.pdf
 Fase 1/paper/img/
 
+# extensions
+*.csv
+*.html
+*.gz
+*.out
+*.log
+*.aux
+*.tex
+*.sty
 
 
-Fase 1/paper/paper.tex
 
-Fase 1/paper/jcematcom.sty
+
+
