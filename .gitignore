@@ -1,11 +1,22 @@
-.~students-data.csv
-Rplots.pdf
-paper/paper.synctex.gz
+# directories
+*stuff/
+*Stuff/
+*Rplots.pdf
+Fase 1/paper/img/
 
-paper/paper.out
+# extensions
+*.csv
+*.html
+*.gz
+*.out
+*.log
+*.aux
+*.tex
+*.sty
 
-paper/paper.log
 
-paper/paper.aux
 
-paper/img/
+
+
+
+Fase 2/paper/img/
